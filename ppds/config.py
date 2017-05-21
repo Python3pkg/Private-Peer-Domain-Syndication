@@ -57,7 +57,7 @@ class Configuration:
 
     def printdict(self):
         '''debug'''
-        print(self.__dict__)
+        print((self.__dict__))
 
     def autoconfig(self):
         '''detect platform and hosts file location (windows may be wrong
@@ -71,7 +71,7 @@ class Configuration:
             sys.exit(1)
             # self.hostfile = '%\SystemRoot%\\System32\\drivers\\etc\\'
         else:
-            self.hostfile = str(input("Enter Plaintext Hostfile Location: "))
+            self.hostfile = str(eval(input("Enter Plaintext Hostfile Location: ")))
         self.repositories.append(self.defaultdomain)
 
     def save(self, mode, isroot, args):
@@ -85,7 +85,7 @@ Use --f to override""")
                 any(self.repopriority) is False):
             if os.path.isfile('%s/config.json' % self.datafolder):
                 if mode == 'cli':
-                    check = str(input('Overwrite config? (y/n): '))
+                    check = str(eval(input('Overwrite config? (y/n): ')))
                     if check == 'y':
                         os.remove('%s/config.json' % self.datafolder)
                     else:

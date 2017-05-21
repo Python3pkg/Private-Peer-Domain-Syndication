@@ -71,7 +71,7 @@ USAGE:
 
     def addrepo(self):
         """adds ppds repostiory and tests avaliablity"""
-        newrepo = str(input("Repository to add: "))
+        newrepo = str(eval(input("Repository to add: ")))
         if newrepo in self.configuration.repositories:
             print('Repo already added.')
             sys.exit(1)
@@ -92,7 +92,7 @@ USAGE:
         print("""
 Adding repository without testing validity:
 Exceptions may occur.""")
-        newrepo = str(input("Repository to add: "))
+        newrepo = str(eval(input("Repository to add: ")))
         if newrepo in self.configuration.repositories:
             print('Repo already added.')
             sys.exit(1)
@@ -146,7 +146,7 @@ files with value enable/disable)
 
     def printhelp(self):
         ''' prints help message'''
-        print(self.helpmessage)
+        print((self.helpmessage))
 
     def main(self):
         if "--version" in self.args:

@@ -15,7 +15,7 @@ class Repository:
 
     def printdict(self):
         ''' debug'''
-        print(self.__dict__)
+        print((self.__dict__))
 
     def loadpackagelist(self):
         ''' loads list of packages from file'''
@@ -35,7 +35,7 @@ class Repository:
         '''writes package to file'''
         if os.path.isfile('%s/repos/%s/ppdslist.json' %
                           (self.datafolder, self.name)):
-            check = str(input('Overwrite ppdslist? (y/n): '))
+            check = str(eval(input('Overwrite ppdslist? (y/n): ')))
             if check == 'y':
                 os.remove('%s/repos/%s/ppdslist.json' %
                           (self.datafolder, self.name))
